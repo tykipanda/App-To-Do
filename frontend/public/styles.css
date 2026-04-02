@@ -206,3 +206,10 @@ body {
     color: white;
 }
 
+ /* Footer */
+ .app-footer {
+    text-align: center;
+    padding: 1rem;
+    color: var(--texr-light);
+    font-size: 0.9rem;
+}
