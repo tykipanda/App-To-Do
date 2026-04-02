@@ -146,5 +146,33 @@ body {
     color: var(--texr-light);
 }
 
+.todo-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px, solid var(--secondary);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
 
+.todo-checkbox:checked {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+.todo-content {
+    flex: 1;
+}
+
+.todo-text {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.todo-desc {
+    font-size: 0.85rem;
+    color: var(--texr-light);
+    margin-top: 0.2rem;
+}
 
