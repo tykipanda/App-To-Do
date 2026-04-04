@@ -76,3 +76,25 @@ function renderTodos() {
     const active = todos.filter((t) => !t.completed).length;
     todoCount.textContent = `${active} tarea${active !== 1 ? 's' : ''} pendiente${active !== 1 ? 's' : ''}`;
 }
+
+// Event listeners
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const title = titleInput.value.trim();
+    const desc = descInput.value.trim();
+    if (title) {
+        addTodo(title, desc);
+        titleInput.value = '';
+        descInput.value = '';
+    }
+});
+
+filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderTodos();
+    });
+});
