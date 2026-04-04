@@ -14,3 +14,11 @@ const todoList = document.getElementById('todo-list');
 const todoCount = document.getElementById('todo-count');
 const filterBtns = document.querySelectorAll('.filter-btn');
 
+// Funciones de la API
+
+async function fetchTodos() {
+    const res = await fetch(API_URL);
+    todos = await res.json();
+    renderTodos();
+}
+
