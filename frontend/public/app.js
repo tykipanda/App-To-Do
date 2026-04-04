@@ -44,3 +44,9 @@ async function toggleTodo(id) {
     renderTodos();
 } 
 
+async function deleteTodo(id) {
+    await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+    todos = todos.filter((t) => t.id !== id);
+    renderTodos();
+}
+
