@@ -58,6 +58,21 @@ function renderTodos() {
         if (currentFilter === 'completed') return t.completed;
         return true;
     });
+
+
+    todosList.innerHTML = filtered.map((t) => `
+    <li class="todo-item ${t.completed ? 'completed' : ''}">
+        <div class="todo-checkbox" ${t.completed ? 'checked' : ""}" onclick="toggleTodo(${t.id})"></div>
+        <div class="todo-content">
+        <div class="todo-text">${t.title}</div>
+        ${t.description ? `<div class="todo-desc">${t.description}</div>` : ''}
+        </div>
+        <div class="todo-actions">
+        <button class="btn-delete" onclick="deleteTodo(${t.id})">Eliminar</button>
+        </div>
+    </li>
+    `).join('');
+
+    const active = todos.filter((t) => !t.completed).length;
+    todoCount.textContent = `${active} tarea${active !== 1 ? 's' : ''} pendiente${active !== 1 ? 's' : ''}`;
 }
-
-
