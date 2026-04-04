@@ -33,4 +33,14 @@ async function addTodo(title, description) {
     renderTodos();
 }
 
+async function toggleTodo(id) {
+    const todo = todos.find(t => t.id === id);
+    await fetch(`${API_URL}/${id}`,{
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ completed: !todo.completed })
+    });
+    todo.completed = !todo.completed;
+    renderTodos();
+} 
 
