@@ -22,3 +22,15 @@ async function fetchTodos() {
     renderTodos();
 }
 
+async function addTodo(title, description) {
+    const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, description })
+    });
+    const newTodo = await res.json();
+    todos.push(newTodo);
+    renderTodos();
+}
+
+
