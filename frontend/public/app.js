@@ -50,3 +50,14 @@ async function deleteTodo(id) {
     renderTodos();
 }
 
+// Renderizado
+
+function renderTodos() {
+    const filtered = todos.filter((t) => {
+        if (currentFilter === 'active') return !t.completed;
+        if (currentFilter === 'completed') return t.completed;
+        return true;
+    });
+}
+
+
