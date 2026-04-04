@@ -98,3 +98,6 @@ filterBtns.forEach((btn) => {
         renderTodos();
     });
 });
+
+// Inicializar 
+fetchTodos();
