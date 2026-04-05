@@ -32,3 +32,11 @@ const toggleComplete = async (id) => {
     await axios.put(`${API_URL}/${id}`, updated);
     setTodos(todos.map((t) => (t.id === id ? updated : t)));
 };
+
+// Eliminar tarea
+
+const deleteTodo = async (id) => {
+    await axios.delete(`${API_URL}/${id}`);
+    setTodos(todos.filter((t) => t.id !== id));
+};
+
