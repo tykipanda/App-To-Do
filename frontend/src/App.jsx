@@ -17,3 +17,9 @@ useEffect(() => {
     axios.get(API_URL).then((res) => setTodos(res.data));
 }, []);
 
+// Agregar tarea
+const addTodo = async (title, description) => {
+    const res = await axios.post(API_URL, { title, description });
+    setTodos([...todos, res.data]);
+}
+
