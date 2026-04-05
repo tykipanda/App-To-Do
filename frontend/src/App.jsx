@@ -9,7 +9,7 @@ const API_URL = "http://localhost:3001/api/todos";
 function App() {
     const [todos, setTodos] = useState([]);
     const [filter, setFilter] = useState("all");
-} // provicional 
+
 
 // Cargar tareas al iniciar
 
@@ -71,5 +71,17 @@ return (
         ))}
         </div>
 
-        
+        <TodoList
+        todos={filteredTodos}
+        onToggle={toggleComplete}
+        onDelete={deleteTodo}
+        />  
+
+        <footer className="app-footer">
+            <span>{activeTodos} tarea{activeTodos !== 1 ? "s" : ""} pendiente{activeTodos !== 1 ? "s" : ""}</span>
+            </footer>
         </div>
+    );
+}
+
+export default App;
