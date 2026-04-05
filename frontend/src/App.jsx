@@ -11,4 +11,9 @@ function App() {
     const [filter, setFilter] = useState("all");
 } // provicional 
 
+// Cargar tareas al iniciar
+
+useEffect(() => {
+    axios.get(API_URL).then((res) => setTodos(res.data));
+}, []);
 
