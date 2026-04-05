@@ -4,3 +4,11 @@ import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 import "./App.css";
 
+const API_URL = "http://localhost:3001/api/todos";
+
+function App() {
+    const [todos, setTodos] = useState([]);
+    const [filter, setFilter] = useState("all");
+} // provicional 
+
+
