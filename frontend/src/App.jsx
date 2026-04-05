@@ -48,3 +48,28 @@ const filteredTodos = todos.filter((t) => {
     return true;
 });
 
+const activeTodos = todos.filter((t) => !t.completed).length;
+
+return (
+    <div className="app-container">
+        <header className="app-header">
+        <h1>Mis Tareas</h1>
+        <p className="subtitle">Organiza tu día con React</p>
+        </header>
+
+        <TodoForm onAdd={addTodo} />
+
+        <div className="filters">
+        {["all", "active", "completed"].map((f) => (
+            <button
+            key={f}
+            className={`filter-btn ${filter === f ? "active" : ""}`}
+            onClick={() => setFilter(f)}
+            >
+            {f === "all" ? "Todas" : f === "active" ? "Activas" : "Completadas"}
+            </button>
+        ))}
+        </div>
+
+        
+        </div>
