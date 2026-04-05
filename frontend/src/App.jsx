@@ -40,3 +40,11 @@ const deleteTodo = async (id) => {
     setTodos(todos.filter((t) => t.id !== id));
 };
 
+// Filtrar tareas
+
+const filteredTodos = todos.filter((t) => {
+    if (filter === "active") return !t.completed;
+    if (filter === "completed") return t.completed;
+    return true;
+});
+
