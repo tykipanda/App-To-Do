@@ -18,8 +18,17 @@ useEffect(() => {
 }, []);
 
 // Agregar tarea
+
 const addTodo = async (title, description) => {
     const res = await axios.post(API_URL, { title, description });
     setTodos([...todos, res.data]);
-}
+};
 
+// Marcar como completada
+
+const toggleComplete = async (id) => {
+    const todo = todos.find((t) => t.id === id);
+    const updated = { ...todo, completed: !todo.completed };
+    await axios.put(`${API_URL}/${id}`, updated);
+    setTodos(todos.map((t) => (t.id === id ? updated : t)));
+};
