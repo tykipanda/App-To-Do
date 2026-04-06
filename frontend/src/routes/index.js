@@ -1,13 +1,13 @@
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import Welcome from '../pages/Welcome';
 
-export default function Routes() {
+export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" component={Welcome} />
+      <Route path="/" element={<Welcome />} />
     </Routes>
   );
 }
