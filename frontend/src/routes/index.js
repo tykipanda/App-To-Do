@@ -6,8 +6,8 @@ import Welcome from '../pages/Welcome';
 
 export default function Routes() {
   return (
-    <Switch>
+    <Routes>
       <Route path="/" component={Welcome} />
-    </Switch>
+    </Routes>
   );
 }
