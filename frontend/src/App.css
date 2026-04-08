@@ -1,0 +1,235 @@
+/* Variables y Reset */
+:root {
+    --primary-color: #1B4f72;
+    --secondary-color: #2980b9;
+    --accent: #E39C12;
+    --success: #27ae60;
+    --danger: #e74c3c;
+    --bg: #f0f3f5;
+    --card: #ffffff;
+    --text: #2c3e50;
+    --texr-light: #7f8c8d;
+    --radius: 12px;
+    --shadow: 0 4px 20px rgba(|0, 0, 0, 08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+/* Contenedor Principal */
+
+.app-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.app-header h1 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--texr-light);
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+/* Formulario */
+
+.todo-form {
+    background: var(--card);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.form-group input {
+    padding: 0.75rem 1rem;
+    border: 2px solid #e5e8eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--secondary);
+}
+
+.btn-add {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--secondary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-add:hover { background: var(--primary);}
+.btn-add:active { transform: scale(0.98); }
+
+/* Filtros */
+
+.filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.filter-btn {
+    flex: 1;
+    padding: 0.5rem;
+    border: 2px solid #E5E8EB;
+    background: var(--card);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.filter-btn.active {
+    border-color: var(--secondary);
+    background: var(--secondary);
+    color: white;
+}
+
+/* Lista de Tareas */
+
+.todo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.todo-item {
+    background: var(--card);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s, opacity 0.3s;
+    animation: slideIn 0.3s ease;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: var(--texr-light);
+}
+
+.todo-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px, solid var(--secondary);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.todo-checkbox:checked {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+.todo-content {
+    flex: 1;
+}
+
+.todo-text {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.todo-desc {
+    font-size: 0.85rem;
+    color: var(--texr-light);
+    margin-top: 0.2rem;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+.todo-actions button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.btn-edit {
+    background: #ebf5fb;
+    color: var(--secondary);
+}
+.btn-delete {
+    background: #FDEDEC;
+    color: var(--danger);
+}
+.btn-edit:hover {
+    background: var(--secondary);
+    color: white;
+}
+.btn-delete:hover {
+    background: var(--danger);
+    color: white;
+}
+
+ /* Footer */
+ .app-footer {
+    text-align: center;
+    padding: 1rem;
+    color: var(--texr-light);
+    font-size: 0.9rem;
+}
+
+/* Animaciones */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }                
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .app-header h1 {
+        font-size: 1.6rem;
+    }
+    .todo-item {
+        flex-wrap: wrap;
+    }
+    .todo-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }   
+}
